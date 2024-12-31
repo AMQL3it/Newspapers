@@ -7,7 +7,7 @@ const customLevels = {
     info: 1,
     notice: 2,
     warning: 3,
-    err: 4,
+    error: 4,
     crit: 5,
     alert: 6,
   },
@@ -28,7 +28,7 @@ const logger = createLogger({
     format.colorize(),
     format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
     format.printf(({ level, message, timestamp }) => {
-      return `${timestamp} [${level}]: ${message}`;
+      return `[${level}] ${timestamp}: ${message}`;
     })
   ),
   transports: [

@@ -1,15 +1,19 @@
-version: '3.7'
+version: '3.9' # Use the latest Compose file format version
 services:
   db:
     image: mysql:latest
+    container_name: newspaper-db # Name the container
     command: --max-allowed-packet=64M
     restart: always
     environment:
-      MYSQL_DATABASE: 'ndms'
+      MYSQL_DATABASE: 'newspaper'
       MYSQL_USER: 'app'
       MYSQL_PASSWORD: '12345'
-      MYSQL_ROOT_PASSWORD: 'newspaper'
+      MYSQL_ROOT_PASSWORD: '12345'
     ports:
-      - "3306:3306"
-volumes: 
-  mysql-data:
+      - "3307:3306"
+    volumes:
+      - newspaper:/var/lib/mysql # Attach named volume "newspaper" to persist data
+
+volumes:
+  newspaper: # Define the named volume

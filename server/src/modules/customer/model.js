@@ -19,14 +19,8 @@ const Customer = sequelize.define(
     cus_name: {
       type: DataTypes.STRING,
     },
-    cus_designation: {
-      type: DataTypes.STRING,
-    },
     cus_branch: {
         type: DataTypes.STRING,
-    },
-    cus_department: {
-      type: DataTypes.STRING,
     },
     cus_products: {
       type: DataTypes.JSON,

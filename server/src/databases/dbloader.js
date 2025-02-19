@@ -16,10 +16,12 @@ const DBconnection = async () => {
 };
 
 const Models = require("./models");
+const setupAssociations = require("./associations");
 
 // { alter: true }
 const DBLoader = async () => {
     try {
+      await setupAssociations(Models);
       for (const modelName in Models) {
         await Models[modelName].sync();
         logger.warning(`${modelName} table created successfully.`);
@@ -27,7 +29,11 @@ const DBLoader = async () => {
     } catch (error) {
       console.error('Unable to create tables:', error);
       throw error; 
-    }
+    } 
+    // finally {
+    //   await sequelize.close(); // Close the connection
+    //   logger.info('DB connection closed.');
+    // }
 }
 
 module.exports = { DBconnection, DBLoader };

@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import Sidebar from "./Sidebar";
 import background from "../assets/background.png";
 
@@ -10,7 +11,7 @@ const Home = () => {
         <div style={styles.header}>Header Section</div>
         <div style={styles.content}>
           {/* Your content goes here */}
-          <p>Scroll down for more content...</p>
+          <Outlet />
           {/* Add more content to see the scroll effect */}
         </div>
       </div>

@@ -1,22 +1,21 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const Sidebar = () => {
   const [active, setActive] = useState("Dashboard");
 
   const menuItems = [
-    { name: "Dashboard", icon: "📊" },
-    // { name: "Home", icon: "🏠" },
-    { name: "Areas", icon: "🗺️" },
-    { name: "Departments", icon: "🏢" },
-    { name: "Customers", icon: "👥" },
-    { name: "Products", icon: "🛒" },
-    { name: "Deliveries", icon: "🚚" },
-    { name: "Bills", icon: "💳" },
-
-
-    { name: "Settings", icon: "⚙️", bottom: true },
-    { name: "Profile", icon: "👤", bottom: true },
+    { name: "Dashboard", icon: "tachometer", to: "" },
+    { name: "Areas", icon: "map", to: "areas" },
+    { name: "Departments", icon: "building", to: "departments" },
+    { name: "Customers", icon: "users", to: "customers" },
+    { name: "Products", icon: "shopping-cart", to: "products" },
+    { name: "Deliveries", icon: "truck", to: "deliveries" },
+    { name: "Bills", icon: "credit-card", to: "bills" },
+  
+    { name: "Settings", icon: "cog", bottom: true },
+    { name: "Profile", icon: "user", bottom: true },
   ];
 
   return (
@@ -41,7 +40,10 @@ const Sidebar = () => {
               }}
               onClick={() => setActive(item.name)}
             >
-              {item.icon} {item.name}
+              <NavLink to={item.to} style={{ textDecoration: "none", color: "white" }}>
+                <i className={`fa fa-${item.icon}`} style={{ marginRight: "8px" }}></i>
+                {item.name}
+              </NavLink>
             </button>
           )
         ))}
@@ -59,7 +61,8 @@ const Sidebar = () => {
               }}
               onClick={() => setActive(item.name)}
             >
-              {item.icon} {item.name}
+              <i className={`fa fa-${item.icon}`}></i>
+              {item.name}
             </button>
           )
         ))}

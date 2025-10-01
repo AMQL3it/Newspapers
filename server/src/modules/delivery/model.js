@@ -4,7 +4,7 @@ const sequelize = require("../../databases/config");
 const Delivery = sequelize.define(
     "Delivery", {
         id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-        date: { type: DataTypes.DATEONLY, allowNull: false },
+        status: { type: DataTypes.ENUM("pending", "delivered", "cancelled"), defaultValue: "pending", allowNull: false },
     },
     {
         tableName: "deliveries",

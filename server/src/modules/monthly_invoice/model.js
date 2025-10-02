@@ -14,7 +14,7 @@ const MonthlyInvoice = sequelize.define(
         notes: { type: DataTypes.TEXT },
     },
     {
-        tableName: "monthlyInvoices",
+        tableName: "monthly_invoices",
     }
 );
 

@@ -17,6 +17,7 @@ const server = createServer();
 server.listen(port, () => {
   logger.info(`${app_name} - app listening to port: ${port}`);
 })
+
 // Database connection
 DB.DBconnection();
 

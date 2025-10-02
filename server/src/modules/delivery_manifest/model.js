@@ -8,7 +8,7 @@ const DeliveryManifest = sequelize.define(
         note: { type: DataTypes.TEXT },
     },
     {
-        tableName: "deliveryManifests",
+        tableName: "delivery_manifests",
     }
 );
 

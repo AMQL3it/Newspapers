@@ -10,7 +10,7 @@ const SupplierInvoice = sequelize.define(
     note: { type: DataTypes.TEXT },
   },
   {
-    tableName: "supplierInvoices",
+    tableName: "supplier_invoices",
   }
 );
 

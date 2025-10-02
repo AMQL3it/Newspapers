@@ -1,5 +1,5 @@
-const Area = require("../area/model.js");
-const Department = require("./model.js");
+const { Area, Department } = require("../../databases/models.js");
+// const Department = require("./model.js");
 
 const departmentRepository = {
   // Create a new Department
@@ -16,10 +16,10 @@ const departmentRepository = {
   // Get all Departments
   async getAll() {
     try {
-      return await Department.findAll({
-        include: Area,
-      });
-    } catch (error) {
+      return await Department.findAll(
+        { include: [{ model: Area, as: "area" }] }
+      );
+    } catch (error) {      
       console.error("Error fetching all Departments:", error.message);
       throw error;
     }
@@ -29,9 +29,7 @@ const departmentRepository = {
   async getById(id) {
     try {
       const department = await Department.findByPk(
-        id, {
-          include: Area,
-        }
+        id, { include: [{ model: Area, as: "area" }] }
       );
       if (!department) {
         throw new Error(`Department with ID ${id} not found`);

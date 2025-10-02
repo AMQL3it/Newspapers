@@ -10,7 +10,7 @@ const BillInvoice = sequelize.define(
         amount: { type: DataTypes.FLOAT, allowNull: false },
     },
     {
-        tableName: "billInvoices",
+        tableName: "bill_invoices",
     }
 );
 

@@ -7,7 +7,7 @@ const SupplierOrder = sequelize.define(
     quantity: { type: DataTypes.INTEGER, allowNull: false },
   },
   {
-    tableName: "supplierOrders",
+    tableName: "supplier_orders",
   }
 );
 

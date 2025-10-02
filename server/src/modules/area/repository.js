@@ -1,3 +1,4 @@
+const { Department } = require("../../databases/models.js");
 const Area = require("./model.js");
 
 const areaRepository = {

@@ -10,10 +10,6 @@
 /client/package-lock.json
 /client/.gitignore
 
-/web/node_modules
-/web/package-lock.json
-/web/.gitignore
-
 # app ignore file
 /app/node_modules
 /app/.env

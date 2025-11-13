@@ -18,62 +18,77 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-[250px] h-[calc(100vh)] bg-[rgba(35,35,35,0.5)] p-5 flex flex-col justify-between">
-      {/* Logo and Company Name */}
-      <div className="flex flex-col items-center gap-2">
-        <div className="w-12 h-12 bg-gray-500 rounded-full overflow-hidden">
-          <img src={logo} alt="Logo" className="w-full h-full object-cover" />
+    <aside className="w-[250px] h-screen bg-[#1a1a1a]/80 backdrop-blur-md flex flex-col justify-between border-r border-gray-700">
+      {/* Logo Section */}
+      <div className="flex flex-col items-center py-6 border-b border-gray-700">
+        <div className="w-14 h-14 rounded-full overflow-hidden ring-2 ring-green-600">
+          <img
+            src={logo}
+            alt="Logo"
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          />
         </div>
-        <h2 className="text-lg font-bold text-white">AMQL3it</h2>
+        <h2 className="text-xl font-bold text-white mt-2 tracking-wide">
+          AMQL3it
+        </h2>
       </div>
 
-      {/* Menu Items */}
-      <div className="flex flex-col gap-2 flex-1 mt-4">
+      {/* Main Menu */}
+      <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-transparent mt-4 px-3">
         {menuItems
           .filter((item) => !item.bottom)
           .map((item, index) => (
-            <button
+            <NavLink
               key={index}
+              to={item.to}
               onClick={() => setActive(item.name)}
-              className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors duration-300
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-2.5 rounded-lg mb-1 transition-all duration-300 
                 ${
-                  active === item.name
-                    ? "bg-green-600 font-semibold text-white"
-                    : "bg-[rgba(137,137,137,0.3)] hover:bg-[rgba(137,137,137,0.5)] text-white"
-                }`}
+                  isActive || active === item.name
+                    ? "bg-green-600/90 text-white shadow-md"
+                    : "text-gray-300 hover:bg-gray-700/50 hover:text-white"
+                }`
+              }
             >
-              <NavLink
-                to={item.to}
-                className="flex items-center gap-2 w-full text-white no-underline"
-              >
-                <i className={`fa fa-${item.icon}`}></i>
-                {item.name}
-              </NavLink>
-            </button>
+              <i
+                className={`fa fa-${item.icon} text-sm w-5 text-center ${
+                  active === item.name ? "text-white" : "text-gray-400"
+                }`}
+              ></i>
+              <span className="text-sm font-medium">{item.name}</span>
+            </NavLink>
           ))}
       </div>
 
-      {/* Bottom Menu Items */}
-      <div className="border-t border-gray-400 pt-3 flex flex-col gap-2">
+      {/* Bottom Section */}
+      <div className="border-t border-gray-700 py-4 px-3">
         {menuItems
           .filter((item) => item.bottom)
           .map((item, index) => (
-            <button
+            <NavLink
               key={index}
+              to={item.to || "#"}
               onClick={() => setActive(item.name)}
-              className={`flex items-center gap-2 px-3 py-2 rounded-md transition-colors duration-300
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-2.5 rounded-lg transition-all duration-300 
                 ${
-                  active === item.name
-                    ? "bg-green-600 font-semibold text-white"
-                    : "bg-[rgba(137,137,137,0.3)] hover:bg-[rgba(137,137,137,0.5)] text-white"
-                }`}
+                  isActive || active === item.name
+                    ? "bg-green-600/90 text-white shadow-md"
+                    : "text-gray-300 hover:bg-gray-700/50 hover:text-white"
+                }`
+              }
             >
-              <i className={`fa fa-${item.icon}`}></i>
-              {item.name}
-            </button>
+              <i
+                className={`fa fa-${item.icon} text-sm w-5 text-center ${
+                  active === item.name ? "text-white" : "text-gray-400"
+                }`}
+              ></i>
+              <span className="text-sm font-medium">{item.name}</span>
+            </NavLink>
           ))}
       </div>
-    </div>
+    </aside>
   );
 };
 

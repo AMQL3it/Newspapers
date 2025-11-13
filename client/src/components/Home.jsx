@@ -8,7 +8,7 @@ const Home = () => {
     <div style={styles.container}>
       <Sidebar />
       <div style={styles.body}>
-        <div style={styles.header}>Header Section</div>
+        {/* <div style={styles.header}>Header Section</div> */}
         <div style={styles.content}>
           {/* Your content goes here */}
           <Outlet />
@@ -34,20 +34,20 @@ const styles = {
     flexDirection: "column",
     // marginLeft: "200px", // Assuming sidebar width is 200px
   },
-  header: {
-    height: "60px", // Fixed header height
-    background: "linear-gradient(to bottom,rgb(249, 252, 254),rgb(171, 171, 171))",
-    // color: "#fff",
-    padding: "10px",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+  // header: {
+  //   height: "60px", // Fixed header height
+  //   background: "linear-gradient(to bottom,rgb(249, 252, 254),rgb(171, 171, 171))",
+  //   // color: "#fff",
+  //   padding: "10px",
+  //   display: "flex",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  // },
   content: {
     flex: 1,
     backgroundColor: "rgba(255, 255, 255, 0.8)",
     overflowY: "auto", // Makes the content area scrollable
-    padding: "20px",
+    // padding: "20px",
   },
 };
 

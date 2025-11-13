@@ -6,6 +6,10 @@
 /server/.gitignore
 
 # web ignore file
+/client/node_modules
+/client/package-lock.json
+/client/.gitignore
+
 /web/node_modules
 /web/package-lock.json
 /web/.gitignore
